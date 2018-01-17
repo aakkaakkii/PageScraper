@@ -1,0 +1,7 @@
+CREATE TABLE links(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  url VARCHAR(255),
+  link VARCHAR(255)
+);
+
+SELECT * FROM links;

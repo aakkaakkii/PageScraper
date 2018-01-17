@@ -1,3 +1,5 @@
+package Model;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,14 +13,16 @@ public class MyScraper {
     private Document document;
     private String webSite;
 
-    MyScraper(String webSite){
+    public MyScraper(String webSite){
         this.webSite=webSite;
         try {
             document = Jsoup.connect(webSite).get();
-        }catch (IOException ex){}
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
     }
 
-    void createSet(String tag, String attribute){
+    public void createSet(String tag, String attribute){
         Elements elements= document.select(tag);
 
         for(Element element: elements){
@@ -31,7 +35,7 @@ public class MyScraper {
         }
     }
 
-    HashSet<String> getlinksSet(){
+    public HashSet<String> getlinksSet(){
         return linksSet;
     }
 }
